@@ -23,10 +23,11 @@ class downtune {
   }
 
   async request(opt) {
-    logger.info('Request : ', opt);
+    logger.info('Request : ', JSON.stringify(opt));
     return new Promise((resolve, reject) => {
       Request(opt, (err, response, body) => {
         if(err) reject(err);
+        if(opt.json) resolve(body);
         const $ = cheerio.load(body);
         resolve($);
       }) ;
@@ -34,7 +35,7 @@ class downtune {
   }
 
   download(opt) {
-    logger.info('Download : ', Object.values(opt).join());
+    logger.info('Download : ', JSON.stringify(opt));
     for(const path in opt) {
       try {
         Request(opt[path]).pipe(fs.createWriteStream(path));
