@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>百度输入法(com.baidu.input) - 8.5.9.3 - 应用 - 酷安网</title>
+<meta name="keywords" content="输入法,拼音,装机必备"/>
+<meta name="description" content="这款百度输入法可以说是小编的御用了，真的很好用的，到底有点讯的基础，做起来是如鱼得水，强烈推荐给大家。"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#48ae4c">
+<link rel="stylesheet" type="text/css" href="/static/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css?v19012312"/>
+<script src="/static/jquery/3.2.1/jquery-3.2.1.min.js"></script>
+<script src="/static/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="warpper">
+    <div class="header_nav">
+        <div id="header">
+    <div id="header-content">
+        <a href="/">
+            <span id="header-logo" style="display: flex;justify-content: left;align-items: center;"><img style="height: 35px;margin-right: 10px;" src="/static/images/header-logo.png" alt=""><span>酷安</span></span>
+        </a>
+        <ul>
+            <li id="navbar-homepage"><a href="/">首页</a></li>
+            <li id="navbar-apk"><a href="/apk/">应用</a></li>
+            <li id="navbar-game"><a href="/game/">游戏</a></li>
+            <li id="navbar-market"><a href="/apk/com.coolapk.market?from=navbar">酷安手机APP</a></li>
+            <li id="navbar-contact"><a href="/about/contact.html">联系酷安</a></li>
+            <li id="navbar-about"><a href="/about/about.html">关于酷安</a></li>
+        </ul>
+        <a class="header-developer" href="https://developer.coolapk.com/?from=navbar"><span>酷安开发者平台</span></a>
+    </div>
+</div>
+<script>
+    var pathname = window.location.pathname;
+    if (pathname.indexOf('/apk/com.coolapk.market') == 0) {
+        document.getElementById('navbar-market').classList.add('header-active');
+    } else if (pathname.indexOf('/apk') == 0) {
+        document.getElementById('navbar-apk').classList.add('header-active');
+    } else if (pathname.indexOf('/game') == 0) {
+        document.getElementById('navbar-game').classList.add('header-active');
+    } else if (pathname.indexOf('/about/contact') == 0) {
+        document.getElementById('navbar-contact').classList.add('header-active');
+    } else if (pathname.indexOf('/about/about') == 0) {
+        document.getElementById('navbar-about').classList.add('header-active');
+    } else {
+        document.getElementById('navbar-homepage').classList.add('header-active');
+    }
+    // alert(pathname);
+</script>
+<div class="navbar navbar-fixed-top header" role="navigation" id="nav-outer">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse"
+                    data-target="#nav_right" data-target='#login'
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/" id="logo">
+                <img id="logoimg" src="/static/img/coolapk.svg" alt="酷安"/>
+                <span id="logofont">酷安</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-left navbar-collapse-menu" id="nav_right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">首页</a></li>
+                <li><a href="/apk/">应用</a></li>
+                <li><a href="/game/">游戏</a></li>
+                <li><a href="/game/online/">在线游戏</a></li>
+                <li><a href="/apk/com.coolapk.market?from=navbar">酷安手机APP</a></li>
+                <li><a href="https://developer.coolapk.com/?from=navbar">开发者平台</a></li>
+            </ul>
+        </div>
+        <div class="navbar-right" id="login">
+            <ul class="nav navbar-nav">
+                                <li><a href="https://account.coolapk.com/auth/login">登录</a></li>
+                <li><a href="https://account.coolapk.com/auth/register">注册</a></li>
+                            </ul>
+        </div>
+        <div class="navbar-right form-group">
+            <form action="/search">
+                <input id="search" type="search" class="form-control" name="q" placeholder="应用搜索"/>
+                <img src="/static/img/search.png"/>
+            </form>
+        </div>
+    </div><!-- /.container -->
+</div>
+    </div>
+
+<div class="container">
+    <div class="bread_nav">
+    <span class="bread_nav_first">
+        <a href="/apk">应用</a>
+    </span>
+    /    <span class="bread_nav_second">
+        <a href="javascript:void(0);">百度输入法</a>
+    </span>
+</div>
+    <div class="app_left">
+        <div class="apk_left_one">
+            <div class="apk_topbar">
+                <img src="http://pp.myapp.com/ma_icon/0/icon_10607_1557395999/256 ">
+                <div class="apk_topba_appinfo">
+                    <div class="apk_topbar_mss">
+                        <p class="detail_app_title">百度输入法<span
+                                    class="list_app_info">  8.5.9.3</span></p>
+                        <p class="apk_topba_message">
+                            26.63M / 426万下载 / 8055人关注 /
+                            1.3万个评论 / 简体中文</p>
+                        <a href="javascript:void(0);" onclick="onDownloadApk(2375);">
+                            <button class="apk_topbar_btn">下载APK</button>
+                        </a>
+                    </div>
+                    <div class="apk_topba_code">
+                        <img src="/qr/image?data=base64:aHR0cHM6Ly93d3cuY29vbGFway5jb20vYXBrL2NvbS5iYWlkdS5pbnB1dD9mcm9tPXFy&h=f13cce41">
+                        <p>扫码下载APK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="apk_left_two">
+            <div class="apk_left_two_box">
+                                <div class="apk_left_first-title">
+                    <p class="apk_left_title_nav">酷安点评</p>
+                    <p class="apk_left_title_info">这款百度输入法可以说是小编的御用了，真的很好用的，到底有点讯的基础，做起来是如鱼得水，强烈推荐给大家。</p>
+                </div>
+                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">应用截图</p>
+                    <div class="apk_left_two_img">
+                        <div class="ex-screenshot-thumb-carousel">
+                                                        <img src="http://pp.myapp.com/ma_pic2/0/shot_10607_1_1557395987/180" data-toggle="modal" data-target="#ex-screenshot-modal"
+                                 onclick='$("#ex-screenshot-carousel").carousel(0);'>
+                                                        <img src="http://pp.myapp.com/ma_pic2/0/shot_10607_2_1557395987/180" data-toggle="modal" data-target="#ex-screenshot-modal"
+                                 onclick='$("#ex-screenshot-carousel").carousel(1);'>
+                                                        <img src="http://pp.myapp.com/ma_pic2/0/shot_10607_3_1557395987/180" data-toggle="modal" data-target="#ex-screenshot-modal"
+                                 onclick='$("#ex-screenshot-carousel").carousel(2);'>
+                                                        <img src="http://pp.myapp.com/ma_pic2/0/shot_10607_4_1557395987/180" data-toggle="modal" data-target="#ex-screenshot-modal"
+                                 onclick='$("#ex-screenshot-carousel").carousel(3);'>
+                                                        <img src="http://pp.myapp.com/ma_pic2/0/shot_10607_5_1557395987/180" data-toggle="modal" data-target="#ex-screenshot-modal"
+                                 onclick='$("#ex-screenshot-carousel").carousel(4);'>
+                                                    </div>
+                    </div>
+                    <div id="ex-screenshot-modal" class="modal fade ex-screenshot-modal" role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog" style="margin:0 auto;max-width: 480px;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                                    </button>
+                                    <h4 class="modal-title" style="font-size: 16px;">截图预览</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="ex-screenshot-carousel" class="carousel slide ex-screenshot-carousel">
+                                        <ol class="carousel-indicators">
+                                                                                        <li data-target="#ex-screenshot-carousel" data-slide-to="0"
+                                                class="active"></li>
+                                                                                        <li data-target="#ex-screenshot-carousel" data-slide-to="1"
+                                                class=""></li>
+                                                                                        <li data-target="#ex-screenshot-carousel" data-slide-to="2"
+                                                class=""></li>
+                                                                                        <li data-target="#ex-screenshot-carousel" data-slide-to="3"
+                                                class=""></li>
+                                                                                        <li data-target="#ex-screenshot-carousel" data-slide-to="4"
+                                                class=""></li>
+                                                                                    </ol>
+                                        <div class="carousel-inner">
+                                                                                        <div class="item active"><img src="http://pp.myapp.com/ma_pic2/0/shot_10607_1_1557395987/0"></div>
+                                                                                        <div class="item "><img src="http://pp.myapp.com/ma_pic2/0/shot_10607_2_1557395987/0"></div>
+                                                                                        <div class="item "><img src="http://pp.myapp.com/ma_pic2/0/shot_10607_3_1557395987/0"></div>
+                                                                                        <div class="item "><img src="http://pp.myapp.com/ma_pic2/0/shot_10607_4_1557395987/0"></div>
+                                                                                        <div class="item "><img src="http://pp.myapp.com/ma_pic2/0/shot_10607_5_1557395987/0"></div>
+                                                                                    </div>
+                                        <a class="left carousel-control" href="#ex-screenshot-carousel"
+                                           data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                        </a>
+                                        <a class="right carousel-control" href="#ex-screenshot-carousel"
+                                           data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">新版特性</p>
+                    <p class="apk_left_title_info">
+                        本次更新：<br />
+1. 增加26键符号面板开关<br />
+2. 适配魅族手机线性马达<br />
+<br />
+近期更新：<br />
+1. 游戏键盘增加主动开关入口<br />
+2. 支持实时翻译，输到哪译到哪<br />
+3. 适配强国APP快速评论<br />
+4. 新增语音斗图，语音输入直接转表情<br />
+5. 支持长按emoji连发，咻咻上屏<br />
+6. 中英混输词库更新，中英随心组                    </p>
+                </div>
+                                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">应用简介</p>
+                    <div class="apk_left_title_info">【主要功能】<br />【AI智能输入】自适应输入场景，出词更智能；<br />【语音速记】声纹区分角色技术首次在输入法登陆；<br />【AR表情】通过人脸识别技术制作多种逗趣表情；<br />【盲打皮肤】新增盲打皮肤，是时候展示真正的打字技术了；<br />【智能输入法】听你所言，懂你所想；<br />【智能语音输入】支持轻声识别和语音修改，更快更精确；<br />【超大系统词库】50万系统词库，输入流畅，选词准确；<br />【人工智能引擎】智能整句输入算法加纠错算法，提高准确率；<br />【快捷搜索】边聊边搜 一步直达；<br />【经典+二次元双模式】不同口味，自由选择；<br />【游戏键盘】游戏短语、悬浮语音、和谐转换三大神器，助力上分、超神必备；<br />【特技皮肤】好看好听更好玩儿，多种分类任你选择；<br />【懒人短语】内置多个短语分类，并支持添加个人常用语；<br />【自动同步】用户网络词、设置项、个性短语云端备份自动同步；<br />【超强中英混输】中文、英文、数字、符号自由混输；<br />【离线语音】没有网络也能语音输入；<br />【智能手写】支持叠写。边写边出字，识别速度快；毛笔字效果；<br />【超多输入方式】支持拼音、英文、笔画、五笔、语音、多媒体等多种输入方式；</div>
+                </div>
+                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">应用评分</p>
+                    <div class="apk_rank">
+                        <p class="rank_num">2.6</p>
+                        <div class="rank_star">
+                            <div class="pull-left ex-apk-rank-intro">
+                                <span class="ex-apk-rank-star"><span
+                                            class="big-star big-star-3"></span></span>
+                            </div>
+                            <p class="apk_rank_p1">共5816个评分</p>
+                        </div>
+                        <div class="rank_bar">
+                            <div class="rank_bar_one">
+                                <div class="rank_bar_onecolor" style="width: 22px">
+                                </div>
+                            </div>
+                            <div class="rank_bar_two">
+                                <div class="rank_bar_twocolor" style="width: 8px">
+                                </div>
+                            </div>
+                            <div class="rank_bar_three">
+                                <div class="rank_bar_threecolor" style="width: 5px">
+                                </div>
+                            </div>
+                            <div class="rank_bar_four">
+                                <div class="rank_bar_fourcolor" style="width: 2px">
+                                </div>
+                            </div>
+                            <div class="rank_bar_five">
+                                <div class="rank_bar_fivecolor" style="width: 60px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">分类标签</p>
+                    <p>
+                                                <a href="/apk/tag/输入法"><span class="apk_left_span2">输入法</span></a>
+                                                <a href="/apk/tag/拼音"><span class="apk_left_span2">拼音</span></a>
+                                                <a href="/apk/tag/装机必备"><span class="apk_left_span2">装机必备</span></a>
+                                            </p>
+                </div>
+                                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">详细信息</p>
+                    <p class="apk_left_title_info">应用包名：com.baidu.input<br/>
+                        更新时间：3天前<br/>
+                        支持ROM：4.0+<br/>
+                        开发者名称：百度在线网络技术（北京）有限公司                    </p>
+                </div>
+                <div class="apk_left_title">
+                    <p class="apk_left_title_nav">权限信息</p>
+                                        <div class="apk_left_title_info">
+                                                · 完全的网络访问权限<br/>
+                                                · 查看网络连接<br/>
+                                                · 查看WLAN连接<br/>
+                                                · 控制振动<br/>
+                                                · 读取您的通讯录<br/>
+                                                · 录音<br/>
+                                                · 更改您的音频设置<br/>
+                                                · 防止手机休眠<br/>
+                                                · 检索正在运行的应用<br/>
+                                                · com.android.launcher.permission.READ_SETTINGS<br/>
+                                                · com.android.launcher.permission.WRITE_SETTINGS<br/>
+                                                · 与蓝牙设备配对<br/>
+                                                · 读取手机状态和身份<br/>
+                                                · 读取您的USB存储设备中的内容<br/>
+                                                · 修改或删除您的USB存储设备中的内容<br/>
+                                                · 修改系统设置<br/>
+                                                · 大致位置（基于网络）<br/>
+                                                · 精确位置（基于GPS和网络）<br/>
+                                                · 拍摄照片和视频<br/>
+                                                · 控制闪光灯<br/>
+                                                · 在其他应用之上显示内容<br/>
+                                                · 开机启动<br/>
+                                                · com.baidu.permission.SHARE<br/>
+                                                · com.android.launcher.permission.INSTALL_SHORTCUT<br/>
+                                                · com.android.launcher.permission.UNINSTALL_SHORTCUT<br/>
+                                                · 展开/收拢状态栏<br/>
+                                                · com.baidu.input.permission.REGISTERRECEIVE<br/>
+                                                · com.baidu.input.permission.SEND<br/>
+                                                · com.baidu.input.permission.RECEIVE<br/>
+                                                · com.baidu.input.permission.PLUGININTERFACESERVICE<br/>
+                                                · android.permission.BAIDU_LOCATION_SERVICE<br/>
+                                            </div>
+                                    </div>
+                <div class="apk_left_under">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+        <div class="left_download">
+            <div class="apk_left_five_box">
+                <div class="left_download_left">
+                    <img src="/qr/image?data=base64:aHR0cHM6Ly93d3cuY29vbGFway5jb20vYXBrL2NvbS5iYWlkdS5pbnB1dD9mcm9tPXFy&h=f13cce41">
+                    <p>扫码查看详情</p>
+                </div>
+                <div class="left_download_right">
+                    <img src="/static/img/banner-logo.png">
+                    <p>下载酷安APP</p>
+                    <p>发现应用的乐趣</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="apk_right" >
+    <div class="apk_right_two" id="apk_right">
+        <div class="download_right">
+            <div class="download_logo">
+                <img src="/static/img/icon.png">
+                <p class="download_title">酷安</p>
+                <p class="download_text">发现应用的乐趣</p>
+            </div>
+            <div class="download_img">
+                <img src="/qr/image?data=base64:aHR0cHM6Ly93d3cuY29vbGFway5jb20vYXBrL2NvbS5jb29sYXBrLm1hcmtldD9mcm9tPWZyb21fd2Vi&h=c78da2ae" alt="扫码下载酷安手机APP">
+            </div>
+            <div class="download_msg">
+                <p>扫码下载酷安手机APP</p>
+            </div>
+            <div class="download_btn">
+                <a href="javascript:void(0);" onclick="onDownloadApk(0);">
+                <button class="download_button"><img src="/static/img/android.png" alt="">下载酷安手机APP</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+<div id="footer" style="margin-top: 20px;z-index: 10;">
+    <div class="content">
+        <div class="footer-left">
+            <div class="icon-group">
+                <div class="footer-logo-box">
+                    <img src="/static/images/header-logo.png" alt="">
+                </div>
+                <div class="footer-text-box" style="margin-left: 20px;">
+                    <p class="title">酷安APP</p>
+                    <p class="sub-title">发现科技新生活</p>
+                </div>
+            </div>
+            <div class="footer-navbar">
+                <ul>
+                    <li><a class="first" href="/about/about.html">关于酷安</a></li>
+                    <li><a href="/about/contact.html">联系合作</a></li>
+                    <li><a href="/about/jobs.html">加入我们</a></li>
+                    <li><a href="/about/copyright.html">版权声明</a></li>
+                    <li><a href="/apk/com.coolapk.market?from=footer">酷安APP</a></li>
+                    <li><a class="last" href="https://developer.coolapk.com?from=footer">酷安开发者平台</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <p>Copyright © 2010-2019 酷安网, All Rights Reserved.<br>酷安网V9.0 | 粤ICP备15030494号-2 | 粤网文 [2016] 2468-477号 | 粤IAS备 201704260017 | 粤B2-20180425</p>
+                <p><img src="/static/images/beian.png" alt="">&nbsp;粤公网安备44030502000719号</p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <div class="footer-qrcode-box">
+                <img src="/qr/image?data=base64:aHR0cHM6Ly93ZWliby5jb20vdS8xNzQ2NTIzOTc0&h=514f5cf8" alt="">
+                <p>酷安微博</p>
+            </div>
+            <div class="footer-qrcode-box">
+                <img src="/qr/image?data=base64:aHR0cDovL3dlaXhpbi5xcS5jb20vci9IQ2s4SlBMRWpLLXpyYlpIOTN3Tw~~&h=5aac8427" alt="">
+                <p>酷安公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+<!--    <div class="footer">-->
+<!--        <div class="w">-->
+<!--            <div class="footer-links">-->
+<!--                <a href="/about/about.html">关于酷安</a> &middot;-->
+<!--                <a href="/about/contact.html">联系合作</a> &middot;-->
+<!--                <a href="/about/jobs.html">加入我们</a> &middot;-->
+<!--                <a href="/about/copyright.html">版权声明</a> &middot;-->
+<!--                <a href="/apk/com.coolapk.market?from=footer">酷安手机APP</a> &middot;-->
+<!--                <a href="https://developer.coolapk.com?from=footer">酷安开发者平台</a>-->
+<!--            </div>-->
+<!--            <div class="footer-copyright">-->
+<!--                Copyright &copy; 2010-2019 酷安网, All Rights Reserved.-->
+<!--            </div>-->
+<!--            <div class="footer-copyright">-->
+<!--                酷安网V8.0 | <a href="http://www.miibeian.gov.cn/" target="_blank"-->
+<!--                             style="color: #999;">粤ICP备15030494号-2</a> |-->
+<!--                粤网文 [2016] 2468-477号 | 粤IAS备 201704260017 | 粤B2-20180425-->
+<!--            </div>-->
+<!--            <div class="footer-record">-->
+<!--                <img src="/static/img/beian.png"> 粤公网安备44030502000719号-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+
+</div>
+<a href="javascript:void(0);" onclick="onDownloadApk(0);">
+    <div class="under">
+        <img src="/static/img/under_logo.png" class="under_logo">
+        <div class="under_text">
+            <p class="under_title">酷安</p>
+            <p class="under_info">发现应用的乐趣</p>
+        </div>
+        <button class="under_btn">下载酷安手机APP</button>
+    </div>
+</a>
+<script type="text/javascript">
+    function onDownloadApk($downloadId) {
+        if ($downloadId) {
+            window.location.href = "https://dl.coolapk.com/down?pn=com.baidu.input&id=MjM3NQ&h=0d9a7dcaprfiud&from=click";
+        } else {
+            window.location.href = 'https://dl.coolapk.com/down?pn=com.coolapk.market&id=NDU5OQ&h=46bb9d98&from=from-web';
+        }
+    }
+</script>
+<script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F7132d8577cc4aa4ae4ee939cd42eb02b' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</body>
+</html>
