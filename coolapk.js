@@ -17,8 +17,13 @@ const coolapk = {
     })
   }, 
   input : {
+    link : $ => ({ 
+      detail : url.resolve(host, $('.app_list_left a').eq(0).attr('href'))
+    })
+  }, 
+  detail : {
     item : $ => ({ 
-      './apk' : url.resolve(host, $('.app_list_left a').eq(0).attr('href'))
+      './baiduInput.apk' : $('script:contains(onDownloadApk)').text().match('\'(.*from-web)\'')[1]
     })
   } 
 };
