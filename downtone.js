@@ -25,12 +25,15 @@ class downtune {
   }
 
   async request(opt) {
+    const _meta_ = opt._meta_ || {};
+    delete opt._meta_;
     logger.info('Request : ', JSON.stringify(opt));
     return new Promise((resolve, reject) => {
       Request(opt, (err, response, body) => {
         if(err) reject(err);
-        if(opt.json) resolve(body);
+        if(opt.json) resolve(Object.assign({}, body, { _meta_ : _meta_ }));
         const $ = cheerio.load(body);
+        $._meta_ = _meta_;
         resolve($);
       }) ;
     });
