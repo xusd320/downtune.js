@@ -13,10 +13,12 @@ class downtune {
   constructor(rule) {
     if(rule.entry && rule.entry.reqOpt) {
       this.rule = rule;
-      this.query = [{
-        reqOpt : this.rule.entry.reqOpt,
+      let reqOpt = rule.entry.reqOpt; 
+      reqOpt = Array.isArray(reqOpt) ? reqOpt : [ reqOpt ];
+      this.query = reqOpt.map(opt => ({
+        reqOpt : opt,
         cmds : this.rule.entry
-      }];
+      }));
     } else {
       throw new Error('no target to fetch');
     }
