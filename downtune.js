@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const Request = require('request');
 const cheerio = require('cheerio');
 const log4js = require('log4js');
@@ -41,17 +40,6 @@ class downtune {
         resolve($);
       }) ;
     });
-  }
-
-  download(opt) {
-    logger.info('Download : ', JSON.stringify(opt));
-    for(const path in opt) {
-      try {
-        Request(opt[path]).pipe(fs.createWriteStream(path));
-      } catch(err){
-        throw new Error(err);
-      }
-    } 
   }
 
   async handle(task) {
