@@ -81,9 +81,8 @@ class downtune {
       }
 
       if(cmds.item)  {
-        let nets = cmds.item($);
-        nets = Array.isArray(nets) ? nets : [ nets ];
-        nets.map(opt => this.download(opt)); 
+        logger.info(`Processing item from : ${ JSON.stringify(reqOpt) }`);
+        await cmds.item($);
       }
     } catch(err) {
       this.set.delete(fpId);
