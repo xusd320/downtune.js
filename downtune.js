@@ -5,13 +5,16 @@ const Request = require('request');
 const cheerio = require('cheerio');
 const log4js = require('log4js');
 
+const fp = require('./fingerprint.js');
+
 const logger = log4js.getLogger();
-logger.level = 'info';
+logger.level = 'debug';
 
 class downtune {
 
   constructor(rule) {
     if(rule.entry && rule.entry.reqOpt) {
+      this.set = new Set();
       this.rule = rule;
       let reqOpt = rule.entry.reqOpt; 
       reqOpt = Array.isArray(reqOpt) ? reqOpt : [ reqOpt ];
@@ -52,9 +55,18 @@ class downtune {
   }
 
   async handle(task) {
+    const cmds = task.cmds;
+    const reqOpt = task.reqOpt;
+    const fpId = fp(reqOpt);
+    if(this.set.has(fpId)) {
+      this._more_ -= 1;
+      logger.debug(`Already request : ${ JSON.stringify(reqOpt) }`);
+      return;
+    } 
+    this.set.add(fpId);
+
     try {
-      const cmds = task.cmds;
-      const $ = await this.request(task.reqOpt);
+      const $ = await this.request(reqOpt);
       this._more_ -= 1;
       if(cmds.link)  {
         const nets = cmds.link($);
@@ -74,6 +86,7 @@ class downtune {
         nets.map(opt => this.download(opt)); 
       }
     } catch(err) {
+      this.set.delete(fpId);
       err.message = `Error from handler ${JSON.stringify(task.reqOpt)} , ${err.message}`; 
       throw new Error(err);
     }
