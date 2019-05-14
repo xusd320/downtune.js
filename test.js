@@ -1,6 +1,6 @@
 'use strict';
 const url = require('url');
-const downtune = require('./downtone.js');
+const downtune = require('./downtune.js');
 
 const host = 'https://www.coolapk.com/';
 
