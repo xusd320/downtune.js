@@ -15,7 +15,7 @@ const coolapk = {
   },
   list : {
     link : $ => ({ 
-      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,3)
+      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,10)
     })
   }, 
   app : {
