@@ -15,6 +15,7 @@ class downtune {
       this.rule = rule;
       let reqOpt = rule.entry.reqOpt; 
       reqOpt = Array.isArray(reqOpt) ? reqOpt : [ reqOpt ];
+      this._more_ = reqOpt.length;
       this.query = reqOpt.map(opt => ({
         reqOpt : opt,
         cmds : this.rule.entry
@@ -45,38 +46,54 @@ class downtune {
       try {
         Request(opt[path]).pipe(fs.createWriteStream(path));
       } catch(err){
-        throw  new Error(err);
+        throw new Error(err);
       }
     } 
   }
 
+  async handle(task) {
+    try {
+      const cmds = task.cmds;
+      const $ = await this.request(task.reqOpt);
+      this._more_ -= 1;
+      if(cmds.link)  {
+        const nets = cmds.link($);
+        for(const key in nets) {
+          const links = Array.isArray(nets[key]) ? nets[key] : [ nets[key] ]; 
+          this._more_ += links.length; 
+          links.map( link => this.query.push({
+            reqOpt : link,
+            cmds : this.rule[key]
+          }));
+        }
+      }
+
+      if(cmds.item)  {
+        let nets = cmds.item($);
+        nets = Array.isArray(nets) ? nets : [ nets ];
+        nets.map(opt => this.download(opt)); 
+      }
+    } catch(err) {
+      err.message = `Error from handler ${JSON.stringify(task.reqOpt)} , ${err.message}`; 
+      throw new Error(err);
+    }
+  }
 
   async start() {
-    while(this.query.length) {
-      try { 
-        const task = this.query.shift();
-        const cmds = task.cmds;
-        const $ = await this.request(task.reqOpt);
-        if(cmds.link)  {
-          const nets = cmds.link($);
-          for(const key in nets) {
-            const links = Array.isArray(nets[key]) ? nets[key] : [ nets[key] ]; 
-            links.map( link => this.query.push({
-              reqOpt : link,
-              cmds : this.rule[key]
-            }));
+    const runner = setInterval(async () => {
+      if(this._more_ > 0) {
+        if(this.query.length) {
+          try {   
+            const task = this.query.shift();
+            await this.handle(task);
+          } catch(err) {
+            logger.error(err);
           }
-        }
-
-        if(cmds.item)  {
-          let nets = cmds.item($);
-          nets = Array.isArray(nets) ? nets : [ nets ];
-          nets.map(opt => this.download(opt)); 
-        }
-      } catch(err) {
-        logger.error(err);
+        } 
+      } else {
+        clearInterval(runner);
       }
-    }
+    }, 50);
   }
 }
 

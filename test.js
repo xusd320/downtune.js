@@ -1,19 +1,35 @@
 'use strict';
-const factory = require('./factory.js');
+const url = require('url');
+const downtune = require('./downtone.js');
 
-function delay(time) {
-  return new Promise((resolve, reject) => {
-    setTimeout(resolve, time); 
-  });
-}
+const host = 'https://www.coolapk.com/';
 
-delay(500).then(() => console.log('delay success'));
+const coolapk = {
+  entry: {
+    reqOpt : 'https://www.coolapk.com/',
+    link : $ => ({
+      list :  url.resolve(host, $('#navbar-apk a').attr('href'))
+    })
+  },
+  list : {
+    link : $ => ({ 
+      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,3)
+    })
+  }, 
+  app : {
+    link : $ => ({ 
+      apk : url.resolve(host, $('.app_list_left a').eq(0).attr('href'))
+    })
+  }, 
+  apk : {
+    item : $ => { 
+      const data = {};
+      const apk = $('.detail_app_title').text().replace(/\s/g,'-').replace(/\//g,'.') + '.apk';
+      data[apk] = $('script:contains(onDownloadApk)').text().match('\'(.*from-web)\'')[1];
+      return data;
+    }
+  } 
+};
 
-const f = new factory(50, 5);
-
-f.run(done => { 
-  const t =   1000;
-  //done.f();
-  delay(t).then(() => console.log(done));
-}
-).then(re => console.log(`hhh ${re}`));
+const D = new downtune(coolapk);
+D.start().then(() => console.log('finish'));
