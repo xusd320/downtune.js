@@ -25,11 +25,11 @@ const coolapk = {
     item : $ => { 
       const data = {};
       const apk = $('.detail_app_title').text().replace(/\s/g,'-').replace(/\//g,'.') + '.apk';
-      data[apk] = $('script:contains(onDownloadApk)').text().match('\'(.*from-web)\'')[1];
+      data[apk] = $('script:contains(onDownloadApk)').text().match('"(.*from=click)"')[1];
       return data;
     }
   } 
 };
 
 const D = new downtune(coolapk);
-D.start().then(() => console.log('finish'));
+D.start();
