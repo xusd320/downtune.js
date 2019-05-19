@@ -34,9 +34,10 @@ class downtune {
     return new Promise((resolve, reject) => {
       Request(opt, (err, response, body) => {
         if(err) reject(err);
-        if(opt.json) resolve(Object.assign({}, body, { _meta_ : _meta_ }));
+        if(opt.json) resolve(Object.assign({}, body, { _meta_ : _meta_ , _header_ : response.headers }));
         const $ = cheerio.load(body);
         $._meta_ = _meta_;
+        $._header_ = response.headers;
         resolve($);
       }) ;
     });
@@ -51,7 +52,6 @@ class downtune {
       logger.debug(`Already request : ${ JSON.stringify(reqOpt) }`);
       return;
     } 
-    this.set.add(fpId);
 
     try {
       const $ = await this.request(reqOpt);
@@ -59,7 +59,8 @@ class downtune {
       if(cmds.link)  {
         const nets = cmds.link($);
         for(const key in nets) {
-          const links = Array.isArray(nets[key]) ? nets[key] : [ nets[key] ]; 
+          let links = Array.isArray(nets[key]) ? nets[key] : [ nets[key] ]; 
+          links = links.filter( req => ! this.set.has(fp(req)) );
           this._more_ += links.length; 
           links.map( link => this.query.push({
             reqOpt : link,
@@ -72,28 +73,33 @@ class downtune {
         logger.info(`Processing item from : ${ JSON.stringify(reqOpt) }`);
         await cmds.item($);
       }
+      
+      this.set.add(fpId);
     } catch(err) {
       this.set.delete(fpId);
       err.message = `Error from handler ${JSON.stringify(task.reqOpt)} , ${err.message}`; 
-      throw new Error(err);
+      logger.error(new Error(err));
     }
   }
 
-  async start() {
-    const runner = setInterval(async () => {
-      if(this._more_ > 0) {
-        if(this.query.length) {
-          try {   
-            const task = this.query.shift();
-            await this.handle(task);
-          } catch(err) {
-            logger.error(err);
-          }
-        } 
-      } else {
-        clearInterval(runner);
-      }
-    }, 50);
+  start() {
+    return new Promise((resolve, reject) => {
+      const runner = setInterval(async () => {
+        if(this._more_ > 0) {
+          if(this.query.length) {
+            try {   
+              const task = this.query.shift();
+              this.handle(task);
+            } catch(err) {
+              reject(err);
+            }
+          } 
+        } else {
+          clearInterval(runner);
+          resolve();
+        }
+      }, 50);    
+    });
   }
 }
 
