@@ -34,8 +34,7 @@ class downtune {
     return new Promise((resolve, reject) => {
       Request(opt, (err, response, body) => {
         if(err) reject(err);
-        if(opt.json) resolve(Object.assign({}, body, { _meta_ : _meta_ , _header_ : response.headers }));
-        const $ = cheerio.load(body);
+        const $ = opt.json ? body : cheerio.load(body);
         $._meta_ = _meta_;
         $._header_ = response.headers;
         resolve($);

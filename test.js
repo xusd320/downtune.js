@@ -34,4 +34,4 @@ const coolapk = {
 };
 
 const D = new downtune(coolapk);
-D.start().then(() => console.log('ginish'));
+D.start().then(() => console.log('finish'));
