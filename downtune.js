@@ -69,7 +69,7 @@ class downtune {
     if(retry > this.retry) {
       this._more_ -= 1;
       this.set.add(fpId);
-      logger.debug(`Reach max retry, Request : ${ JSON.stringify(reqOpt) }`);
+      logger.debug(`Max retry, Request : ${ JSON.stringify(reqOpt) }`);
       return;
     }
 
