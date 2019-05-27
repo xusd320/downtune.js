@@ -1,12 +1,15 @@
 'use strict';
 const url = require('url');
-const downtune = require('./downtune.js');
+const downtune = require('../downtune.js');
 const request = require('request');
 const fs = require('fs');
 
 const host = 'https://www.coolapk.com/';
 
 const coolapk = {
+  concurrency: 10,
+  retry : 2,
+  timeout : 10,
   entry: {
     reqOpt : 'https://www.coolapk.com/',
     link : $ => ({
@@ -15,7 +18,7 @@ const coolapk = {
   },
   list : {
     link : $ => ({ 
-      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,10)
+      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,5)
     })
   }, 
   app : {
@@ -28,7 +31,6 @@ const coolapk = {
       const path = './' +  $('.detail_app_title').text().replace(/\s/g,'-').replace(/\//g,'.') + '.apk';
       const uri = $('script:contains(onDownloadApk)').text().match('"(.*from=click)"')[1];
       console.log(`Downloading item : ${ path } : ${ uri }`);
-      request(uri).pipe(fs.createWriteStream(path));
     }
   } 
 };
