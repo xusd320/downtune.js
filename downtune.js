@@ -4,7 +4,7 @@ const Request = require('request');
 const cheerio = require('cheerio');
 const log4js = require('log4js');
 
-const fp = require('./fingerprint.js');
+const fp = require('./src/fingerprint.js');
 
 const logger = log4js.getLogger();
 logger.level = 'debug';
