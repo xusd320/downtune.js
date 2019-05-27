@@ -8,7 +8,7 @@ const fp = require('./src/fingerprint');
 const factory = require('./src/factory');
 
 const logger = log4js.getLogger();
-logger.level = 'debug';
+logger.level = 'info';
 
 class downtune {
 
