@@ -1,5 +1,5 @@
 {
-  "name": "downtune",
+  "name": "downtune.js",
   "version": "1.0.0",
   "description": "download files from website with special rules",
   "main": "downtune.js",
@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "download"
+    "crawler",
+    "crawl",
+    "download",
+    "spider"
   ],
   "author": "xushaoodong",
   "license": "ISC",
