@@ -1,11 +1,11 @@
 # downtune.js
-A web crawler based on nodejs, surpports concurrency control, url deduplication, request retry and etc...
+A web crawler based on nodejs, supports concurrency control, url deduplication, request retry and etc...
 
-Parse html whith cheerio which works like jQuery selector, compatible with json response.
+Parse html with cheerio which works like jQuery selector, compatible with json response.
 
 See the ./test/test.js for example.
 
-We can use to generate a web spider like blow:
+We can use it to generate a web spider like blow:
 
 ```js
 'use strict';
@@ -21,8 +21,8 @@ const coolapk = {
   timeout : 10, // request timeout use seconds
   entry: {    // entry config
     reqOpt : 'https://www.coolapk.com/',
-    link : $ => ({  // crawler will extract urls from webpage by link property and add there urls to crawler urls queue
-      list :  url.resolve(host, $('#navbar-apk a').attr('href')) // 'list' property as a tag for specific classification of some webpage those share some common feature
+    link : $ => ({  // crawler will extract urls from webpage by link property and add these urls to crawler urls queue, $ is a cheerio instance
+      list :  url.resolve(host, $('#navbar-apk a').attr('href')) // 'list' property as a tag for specific classification of some webpage those share some common features
     })
   },
   list : {
@@ -36,7 +36,7 @@ const coolapk = {
     })
   },
   apk : {
-    item : async $ => { // crawler will deal with item property as information you want to extract from webpage, you can make custom information process as you want. 
+    item : async $ => { // crawler will deal with item property as information you want to extract from webpage, you can make custom procedure as you want. 
       const path = './' +  $('.detail_app_title').text().replace(/\s/g,'-').replace(/\//g,'.') + '.apk';
       const uri = $('script:contains(onDownloadApk)').text().match('"(.*from=click)"')[1];
       console.log(`Downloading item : ${ path } : ${ uri }`);

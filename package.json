@@ -1,7 +1,7 @@
 {
   "name": "downtune.js",
   "version": "0.0.3",
-  "description": "Crawl data or download files from website with comstun rules",
+  "description": "Crawl data or download files from website with custom rules",
   "main": "downtune.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
