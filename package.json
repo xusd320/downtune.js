@@ -1,20 +1,13 @@
 {
-  "name": "downtune.js",
-  "version": "0.0.1",
+  "name": "downtune",
+  "version": "0.0.2",
   "description": "download files from website with special rules",
   "main": "downtune.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xusd320/downtune.js.git"
-  },
   "keywords": [
-    "crawler",
-    "crawl",
-    "download",
-    "spider"
+    "download"
   ],
   "author": "xushaoodong",
   "license": "ISC",
