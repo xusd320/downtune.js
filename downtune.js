@@ -7,9 +7,6 @@ const log4js = require('log4js');
 const fp = require('./src/fingerprint');
 const factory = require('./src/factory');
 
-const logger = log4js.getLogger();
-logger.level = 'info';
-
 class downtune {
 
   constructor(rule) {
@@ -29,6 +26,8 @@ class downtune {
         cmds : this.rule.entry,
         retry: 0,
       }));
+      this.logger = log4js.getLogger();
+      this.logger.level = rule.log_level || 'info';
     } else {
       throw new Error('no target to fetch');
     }
@@ -42,7 +41,7 @@ class downtune {
     opt.timeout = this.timeout;
     const _meta_ = opt._meta_ || {};
     delete opt._meta_;
-    logger.info('Request : ', JSON.stringify(opt));
+    this.logger.info('Request : ', JSON.stringify(opt));
     try {
       const response = await Request(opt); 
       const $ = opt.json ? response.body : cheerio.load(response.body);
@@ -62,14 +61,14 @@ class downtune {
 
     if(this.set.has(fpId)) {
       this._more_ -= 1;
-      logger.debug(`Already request : ${ JSON.stringify(reqOpt) }`);
+      this.logger.debug(`Already request : ${ JSON.stringify(reqOpt) }`);
       return;
     } 
     
-    if(retry > this.retry) {
+    if(retry >= this.retry) {
       this._more_ -= 1;
       this.set.add(fpId);
-      logger.debug(`Max retry, Request : ${ JSON.stringify(reqOpt) }`);
+      this.logger.debug(`Max retry, Request : ${ JSON.stringify(reqOpt) }`);
       return;
     }
 
@@ -90,7 +89,7 @@ class downtune {
       }
 
       if(cmds.item)  {
-        logger.info(`Processing item from : ${ JSON.stringify(reqOpt) }`);
+        this.logger.info(`Processing item from : ${ JSON.stringify(reqOpt) }`);
         await cmds.item($);
       }
       
@@ -100,7 +99,7 @@ class downtune {
       this.set.delete(fpId);
       this.query.push(Object.assign({}, task, { retry: retry + 1}));
       err.message = `Error from handler ${JSON.stringify(task.reqOpt)} , ${err.message}`; 
-      logger.error(new Error(err));
+      this.logger.error(new Error(err));
     }
   }
 
@@ -119,6 +118,7 @@ class downtune {
         }
       } else {
         this.ft.stop();
+        this.logger.info('All requests have been finished.');
       }
     });
   }

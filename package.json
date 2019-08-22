@@ -1,10 +1,10 @@
 {
   "name": "downtune.js",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Crawl data or download files from website with custom rules",
   "main": "downtune.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,9 @@
     "crawler",
     "crawl",
     "download",
-    "spider"
+    "spider",
+    "scrapy",
+    "爬虫"
   ],
   "author": "xushaoodong",
   "license": "ISC",
@@ -22,6 +24,7 @@
     "cheerio": "^1.0.0-rc.3",
     "json-stable-stringify": "^1.0.1",
     "log4js": "^4.1.1",
+    "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {

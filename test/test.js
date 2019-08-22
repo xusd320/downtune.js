@@ -1,14 +1,13 @@
 'use strict';
 const url = require('url');
 const downtune = require('../downtune.js');
-const request = require('request');
-const fs = require('fs');
 
 const host = 'https://www.coolapk.com/';
 
 const coolapk = {
+  log_level: 'debug',
   concurrency: 10,
-  retry : 2,
+  retry : 3,
   timeout : 10,
   entry: {
     reqOpt : 'https://www.coolapk.com/',
@@ -18,10 +17,16 @@ const coolapk = {
   },
   list : {
     link : $ => ({ 
-      app : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0,5)
+      app1 : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(0, 5),
+      app2 : $('.type_tag a').map((i, e) => encodeURI(url.resolve(host, $(e).attr('href')))).get().slice(6, 10)
     })
   }, 
-  app : {
+  app1 : {
+    link : $ => ({ 
+      apk : url.resolve(host, $('.app_list_left a').eq(0).attr('href'))
+    })
+  }, 
+  app2 : {
     link : $ => ({ 
       apk : url.resolve(host, $('.app_list_left a').eq(0).attr('href'))
     })
