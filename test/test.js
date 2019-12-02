@@ -6,7 +6,7 @@ const host = 'https://www.coolapk.com/';
 
 const coolapk = {
   log_level: 'debug',
-  concurrency: 10,
+  concurrency: 1,
   retry : 3,
   timeout : 10,
   entry: {

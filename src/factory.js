@@ -17,11 +17,10 @@ class factory {
   work(job) {
     ++ this.working;
 
-    const done = (() => {
+    const done = (function() {
       -- this.working;
       ++ this.worked;
     }).bind(this);
-
     process.nextTick(job, done);
   }
   
