@@ -1,6 +1,6 @@
 {
   "name": "downtune.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Crawl data or download files from website with custom rules",
   "main": "downtune.js",
   "scripts": {
